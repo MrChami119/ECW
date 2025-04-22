@@ -76,7 +76,8 @@ export default function Hero() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-primary/20 backdrop-blur-sm bg-background/30 hover:bg-background/50"
+                className="border-primary/20 backdrop-blur-sm"
+                style={{ backgroundColor: "hsl(var(--background))" }}
               >
                 Explore Services
               </Button>

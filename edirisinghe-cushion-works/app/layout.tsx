@@ -3,6 +3,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import type { Metadata } from "next"
+import "./custom.css"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -18,7 +19,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body
+        className={inter.className}
+        style={{ backgroundColor: "hsl(var(--background))", color: "hsl(var(--foreground))" }}
+      >
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           {children}
         </ThemeProvider>
