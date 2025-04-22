@@ -12,7 +12,9 @@ export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const handleSubmit = async (e) => {
+  interface FormEvent extends React.FormEvent<HTMLFormElement> {}
+
+  const handleSubmit = async (e: FormEvent): Promise<void> => {
     e.preventDefault()
     setIsSubmitting(true)
 
