@@ -108,7 +108,13 @@ const categories = [
 
 export default function GalleryGrid() {
   const [selectedCategory, setSelectedCategory] = useState("All")
-  const [selectedItem, setSelectedItem] = useState(null)
+  const [selectedItem, setSelectedItem] = useState<{
+    id: number
+    title: string
+    category: string
+    image: string
+    description: string
+  } | null>(null)
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.1 })
 
