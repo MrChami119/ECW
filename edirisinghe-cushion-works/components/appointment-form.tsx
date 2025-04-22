@@ -15,11 +15,13 @@ import { CalendarIcon, CheckCircle2 } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 export default function AppointmentForm() {
-  const [date, setDate] = useState(null)
+  const [date, setDate] = useState<Date | undefined>(undefined)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const handleSubmit = async (e) => {
+  interface FormEvent extends React.FormEvent<HTMLFormElement> {}
+
+  const handleSubmit = async (e: FormEvent): Promise<void> => {
     e.preventDefault()
     setIsSubmitting(true)
 
