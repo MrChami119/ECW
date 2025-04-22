@@ -16,6 +16,7 @@ import {
   DialogFooter,
 } from "@/components/ui/dialog"
 import { Calendar, CheckCircle, Eye, Search, Trash, X } from "lucide-react"
+import { JSX } from "react/jsx-runtime"
 
 export default function AdminAppointments() {
   const [appointments, setAppointments] = useState<Appointment[]>([])
