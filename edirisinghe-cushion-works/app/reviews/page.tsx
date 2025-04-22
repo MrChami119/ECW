@@ -1,7 +1,7 @@
 import { ModeToggle } from "@/components/mode-toggle"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
-import ReviewsGrid from "@/components/reviews-grid"
+import ReviewsGrid from "@/components/review-grid"
 import ReviewForm from "@/components/review-form"
 
 export default function ReviewsPage() {
