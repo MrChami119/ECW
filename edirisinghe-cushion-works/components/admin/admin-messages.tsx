@@ -11,10 +11,21 @@ import { Eye, Search, Trash, CheckCircle } from "lucide-react"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 
 export default function AdminMessages() {
-  const [messages, setMessages] = useState([])
+  interface Message {
+    _id: string
+    name: string
+    email: string
+    subject: string
+    message: string
+    phone?: string
+    read: boolean
+    createdAt: string
+  }
+
+  const [messages, setMessages] = useState<Message[]>([])
   const [loading, setLoading] = useState(true)
   const [searchTerm, setSearchTerm] = useState("")
-  const [selectedMessage, setSelectedMessage] = useState(null)
+  const [selectedMessage, setSelectedMessage] = useState<Message | null>(null)
   const [activeTab, setActiveTab] = useState("all")
 
   useEffect(() => {
@@ -39,7 +50,7 @@ export default function AdminMessages() {
     }
   }
 
-  const markAsRead = async (messageId) => {
+  const markAsRead = async (messageId: string) => {
     try {
       const response = await fetch("/api/admin/messages", {
         method: "PUT",
@@ -60,7 +71,7 @@ export default function AdminMessages() {
     }
   }
 
-  const deleteMessage = async (messageId) => {
+  const deleteMessage = async (messageId: string) => {
     // In a real application, you would implement this functionality
     console.log("Delete message:", messageId)
   }
@@ -79,7 +90,7 @@ export default function AdminMessages() {
     return matchesSearch
   })
 
-  const formatDate = (dateString) => {
+  const formatDate = (dateString: string) => {
     const date = new Date(dateString)
     return date.toLocaleDateString() + " " + date.toLocaleTimeString()
   }
